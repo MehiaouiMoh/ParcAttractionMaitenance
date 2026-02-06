@@ -1,0 +1,80 @@
+.home-card {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 16px;
+  box-shadow: none;
+  background: transparent;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 32px;
+
+  mat-card-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+
+  mat-card-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-top: 8px;
+  }
+}
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.attraction-card {
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+}
+
+.difficulty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  .dots {
+    display: flex;
+    gap: 6px;
+
+    span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #e0e0e0;
+    }
+
+    .active {
+      background: #ff9800;
+    }
+  }
+}

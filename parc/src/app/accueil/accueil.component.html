@@ -1,0 +1,38 @@
+<mat-card class="home-card">
+  <mat-card-header class="hero">
+    <mat-card-title>
+      🎢 Bienvenue au Parc d'Attractions
+    </mat-card-title>
+    <mat-card-subtitle>
+      Faites le plein de sensations fortes
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="attractions-grid">
+      <mat-card
+        class="attraction-card"
+        *ngFor="let attraction of attractions | async"
+      >
+        <mat-card-content>
+          <h3>{{ attraction.nom }}</h3>
+
+          <p class="description">
+            {{ attraction.description }}
+          </p>
+
+          <div class="difficulty">
+            <span>Difficulté</span>
+
+            <div class="dots">
+              <span
+                *ngFor="let dot of [1,2,3,4,5]"
+                [class.active]="dot <= attraction.difficulte"
+              ></span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>
