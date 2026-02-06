@@ -17,3 +17,14 @@ CREATE TABLE users (
     name varchar(255) not null,
     password varchar(255) not null
 );
+
+DROP TABLE iF EXISTS messages;
+
+CREATE TABLE messages (
+    message_id int auto_increment,
+    primary key(message_id),
+    nom varchar(255),
+    prenom varchar(255),
+    message varchar(255) not null,
+    note_attraction int
+);

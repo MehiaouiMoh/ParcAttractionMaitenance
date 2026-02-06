@@ -18,7 +18,7 @@ export class AuthService {
 
   login(form: object): Observable<boolean> {
     return this.http.post<UserInterface>(
-      'https://parcattraction/api/login',
+      'https://api/login',
       {
         ...form,
       }
