@@ -14,13 +14,13 @@ export class AttractionService {
   }
 
   public getAllAttraction() : Observable<AttractionInterface[]> {
-    const url = "https://parcattraction/api/attraction"
+    const url = "https://api/attraction";
     const data = this.dataService.getData(url);
     return data as Observable<AttractionInterface[]>;
   }
 
   public postAttraction(attraction: AttractionInterface): Observable<MessageInterface> {
-    const url = "https://parcattraction/api/attraction";
+    const url = "https://api/attraction";
     const data = this.dataService.postData(url, attraction);
     return data as Observable<MessageInterface>;
   }
