@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { AttractionInterface } from '../Interface/attraction.interface';
-import { AttractionService } from '../Service/attraction.service';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatButtonModule } from '@angular/material/button';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { MatCardModule } from '@angular/material/card';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable, tap } from 'rxjs';
+import { AttractionInterface } from '../Interface/attraction.interface';
+import { AttractionService } from '../Service/attraction.service';
 
 @Component({
   selector: 'app-admin',
@@ -25,7 +25,7 @@ export class AdminComponent {
   constructor(public attractionService: AttractionService, public formBuilder: FormBuilder, private _snackBar: MatSnackBar)
   {}
   
-  public attractions: Observable<AttractionInterface[]> = this.attractionService.getAllAttraction().pipe(tap((attractions:AttractionInterface[]) => {
+  public attractions: Observable<AttractionInterface[]> = this.attractionService.getAllAttractionsAdmin().pipe(tap((attractions:AttractionInterface[]) => {
     attractions.forEach(attraction => {
       this.formulaireAttractions.push(
         new FormGroup({
