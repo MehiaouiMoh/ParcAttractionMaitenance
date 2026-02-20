@@ -15,6 +15,8 @@
           <p>Un max de sensations folles</p>
           <p>De multiples attractions</p>
           <p>Des journées inoubliables</p>
+          <div class="discover"><img src="../../assets/discoverImg.png" alt="decouvre attractions"></div>
+          <a href="/attractions" class="btnAttractions">Découvrez nos attractions</a>
         </div>
         <div class="imgParc"></div>
       </div>
@@ -39,30 +41,24 @@
         </div>
       </div>
     </div>
-    <div class="attractions-grid">
-      <mat-card
-        class="attraction-card"
-        *ngFor="let attraction of attractions | async"
-      >
-        <mat-card-content>
-          <h3>{{ attraction.nom }}</h3>
+    <mat-card class="home-card">
+    <mat-card-header>
+      <mat-card-title>💬 Avis des visiteurs</mat-card-title>
+    </mat-card-header>
 
-          <p class="description">
-            {{ attraction.description }}
-          </p>
-
-          <div class="difficulty">
-            <span>Difficulté</span>
-
-            <div class="dots">
-              <span
-                *ngFor="let dot of [1,2,3,4,5]"
-                [class.active]="dot <= attraction.difficulte"
-              ></span>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
+    <mat-card-content>
+      <div *ngIf="messages$ | async as messages; else noMessages">
+        <div *ngFor="let msg of messages" class="visitor-message">
+          <h4>{{ msg.nom || 'Anonyme' }} {{ msg.prenom || '' }}</h4>
+          <p>{{ msg.message }}</p>
+          <small *ngIf="msg.note_attraction">Note: {{ msg.note_attraction }}/5</small>
+          <hr>
+        </div>
+      </div>
+      <ng-template #noMessages>
+        <p>Aucun avis pour le moment.</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
   </mat-card-content>
 </mat-card>

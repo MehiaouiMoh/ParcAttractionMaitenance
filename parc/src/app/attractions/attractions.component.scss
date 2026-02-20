@@ -1,0 +1,112 @@
+.bordereau{
+  width: 100%;
+  height: 500px;
+  margin-bottom: 24px;
+  background-image: url('../../assets/ParcAttraction.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.title{
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.attraction-card {
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+  .headCard{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    .img{
+      width: 90%;
+      height: 150px;
+      border-radius: 15px;
+      background-image: url('../../assets/ParcAttraction.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .nomAttraction,.description {
+    margin-left: 20px;
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+}
+
+.difficulty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+
+  span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  .dots {
+    display: flex;
+    gap: 6px;
+
+    span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #e0e0e0;
+    }
+
+    .active {
+      background: #ff9800;
+    }
+  }
+}
+.btnAvis{
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+
+  .primary {
+    background-color: #ff9800;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #e68a00;
+    }
+  }
+}

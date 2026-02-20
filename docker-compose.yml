@@ -11,7 +11,7 @@ services:
     command: ./init-angular.sh
     volumes:
       - ./parc:/home/node/app
-    ports: ["4200:4200"]
+    ports: ["4300:4200"]
     restart: always
 
   api:

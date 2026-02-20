@@ -1,0 +1,40 @@
+<mat-card-content>
+  <div class="bordereau"></div>
+  <h3 class="title">Découvrez nos attractions et laisser un commantaire dessus !!</h3>
+    <div class="attractions-grid">
+      <mat-card
+        class="attraction-card"
+        *ngFor="let attraction of attractions | async"
+      >
+        <mat-card-content>
+          <div class="headCard">
+            <div class="img"></div>
+          </div>
+          <h3 class="nomAttraction">{{ attraction.nom }}</h3>
+
+          <p class="description">
+            {{ attraction.description }}
+          </p>
+
+          <div class="difficulty">
+            <span>Difficulté</span>
+
+            <div class="dots">
+              <span
+                *ngFor="let dot of [1,2,3,4,5]"
+                [class.active]="dot <= attraction.difficulte"
+              ></span>
+            </div>
+          </div>
+          <div class="btnAvis">
+            <button 
+            mat-raised-button 
+            class="primary" 
+            (click)="openMessageDialog(attraction)">
+              Ajouter un avis
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>

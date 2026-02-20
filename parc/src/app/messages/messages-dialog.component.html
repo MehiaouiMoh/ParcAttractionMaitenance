@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Laisser un avis</h2>
+
+<form [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="prenom">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Message *</mat-label>
+    <textarea matInput formControlName="message"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Note</mat-label>
+    <mat-select formControlName="note_attraction">
+      <mat-option *ngFor="let n of [1,2,3,4,5]" [value]="n">
+        {{ n }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button (click)="dialogRef.close()">Annuler</button>
+    <button mat-raised-button color="primary" (click)="envoyer()">
+      Envoyer
+    </button>
+  </div>
+</form>

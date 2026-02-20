@@ -4,6 +4,7 @@ from flask_cors import CORS
 import request.request as req
 import controller.auth.auth as user
 import controller.attraction as attraction
+import controller.messages as messages
 
 app = Flask(__name__)
 CORS(app)
@@ -32,6 +33,24 @@ def addAttraction():
 def getAllAttraction():
     result = attraction.get_all_attraction()
     return result, 200
+## Route pour les visiteurs : voir les commentaires
+@app.get('/messages')
+def getAllMessages():
+    result = messages.get_all_messages()  # ta fonction Python get_all_messages()
+    return jsonify(result), 200
+
+@app.post('/messages')
+def post_message():
+    data = request.get_json()  # <-- récupère le JSON envoyé depuis Angular
+    if not data.get("message"):
+        return jsonify({"message": "Le message est obligatoire"}), 400
+
+    result = messages.add_message(data)  # <-- ta fonction Python pour ajouter en BDD
+    if result:
+        return jsonify({"message": "Message ajouté avec succès"}), 200
+    else:
+        return jsonify({"message": "Erreur lors de l'ajout du message"}), 500
+
 
 @app.get('/attraction/<int:index>')
 def getAttraction(index):
